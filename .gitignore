@@ -2,4 +2,4 @@
 
 usage.html
 
-.gitignore
+*.bak
