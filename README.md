@@ -16,6 +16,11 @@ Users load or paste text, adjust scrolling speed (in words-per-minute), and cust
 - **Assessment**: Objective benchmarks for speed/accuracy in interpretation exams.  
 
 ## Setup  
-1. Clone the repo:  
+1. Create a local directory or the document root for a web site
+2. Enter your directory
+3. Clone the repo:  
    ```bash  
-   git clone https://github.com/bilo1967/sight-translation
+   git clone https://github.com/bilo1967/sight-translation .
+   ```
+4. Point your browser to your directory or web site
+5. Enjoy
