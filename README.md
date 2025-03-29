@@ -15,7 +15,7 @@ This tool has been conceived and developed for the Department of Interpretation 
 ## Use Cases  
 - **Didactics**: Trainers evaluate students under standardized conditions (same text/WPM, independently from windows size and screen resolution).  
 - **Self-Training**: Interpreters practice pacing and adaptability.  
-- **Assessment**: Objective benchmarks for speed/accuracy in interpretation exams.A
+- **Assessment**: Objective benchmarks for speed/accuracy in interpretation exams.
 
 ## Privacy
 It entirely runs on your browser. Technical cookies are stored to save user interface preferences.
