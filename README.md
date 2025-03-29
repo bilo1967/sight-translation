@@ -1,5 +1,5 @@
 # sight-translation - a scroller app for simultaneous interpreting training
-_Scroller_ is a web-based tool for trainers and students in simultaneous interpreting, designed to practice and objectively evaluate sight translation performance. It simulates real-time speech flow by scrolling text at customizable speeds in words-per-minute (WPM), offering objective performance tracking and adaptive display settings.
+_Scroller_ is a web-based tool for trainers and students in simultaneous interpreting, designed to practice and objectively evaluate sight translation performance. It simulates real-time speech flow by scrolling text at customizable speeds in words-per-minute ([WPM](https://en.wikipedia.org/wiki/Words_per_minute)), offering objective performance tracking and adaptive display settings.
 Users can load or paste text, adjust scrolling speed (WPM), and customize readability (font size, line spacing) during exercises. Real-time metrics (elapsed/remaining time) and pause/resume functionality are included.
 This tool has been conceived and developed for the Department of Interpretation and Translation (DIT) at the University of Bologna by Gabriele Carioli.
 
