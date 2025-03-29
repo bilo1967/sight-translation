@@ -35,7 +35,7 @@ Works with modern browsers such as Chrome and derivatives, Firefox, Safari, both
 - jquery-event-holdrepeat (https://github.com/bilo1967/jquery-event-holdrepeat, local)
 
 ## Demo
-You can use it from our website: [scroller.ditlab.it](https://scroller.ditlab.it/)
+You can test/use it from our website: [scroller.ditlab.it](https://scroller.ditlab.it/)
 
 ## Setup  
 1. Create a local directory or the document root for a web site
