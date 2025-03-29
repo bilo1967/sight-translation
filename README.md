@@ -18,4 +18,4 @@ Users load or paste text, adjust scrolling speed (in words-per-minute), and cust
 ## Setup  
 1. Clone the repo:  
    ```bash  
-   git clone [repo-url]  
+   git clone https://github.com/bilo1967/sight-translation
