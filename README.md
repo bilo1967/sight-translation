@@ -8,7 +8,7 @@ This tool has been conceived and developed for the Department of Interpretation 
   - Adjust speed in *words-per-minute (WPM)* to mimic speech pacing.  
   - Pause/resume functionality.  
 - **Real-Time Metrics**: elapsed/remaining time (objective, clock-based measurement, independent of window size and screen resolution).
-- **Display Customization**: Modify font size and line spacing, and text scrolling rate *during* exercises.  
+- **Display Customization and Accessibility**: Modify font size and line spacing, and text scrolling rate *during* exercises.  
 - **Text Preparation**: Format raw text via TinyMCE (bold, headings, etc.) before scrolling.
 
 ## Use Cases  
