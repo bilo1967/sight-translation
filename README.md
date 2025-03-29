@@ -10,7 +10,7 @@ This tool has been conceived and developed for the Department of Interpretation 
 - **Real-Time Metrics**: elapsed/remaining time (objective, clock-based measurement, independent of window size and screen resolution).
 - **Display Customization and Accessibility**: Modify font size and line spacing, and text scrolling rate *during* exercises.  
 - **Text Preparation**: Format raw text via TinyMCE (bold, headings, etc.) before scrolling.
-- **Localization**: Interface localization is available in italian, english, spanish (german, french and russian are on the way).
+- **Localization**: Interface localization is available in Italian, English, Spanish (German, French and Russian are on the way).
 
 ## Use Cases  
 - **Didactics**: Trainers evaluate students under standardized conditions (same text/WPM, independently from windows size and screen resolution).  
