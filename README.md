@@ -4,10 +4,10 @@ Users can load or paste text, adjust scrolling speed (in words-per-minute), and 
 This tool has been conceived and developed for the Department of Interpretation and Translation (DIT) at the University of Bologna by Gabriele Carioli.
 
 ## Key Features  
-- **Controlled Scrolling**: Adjust speed in *words-per-minute (WPM)* to mimic speech pacing.  
-- **Real-Time Metrics**:  
-  - Elapsed/remaining time (objective, clock-based measurement, independent of window size and screen resolution).
+- **Controlled Scrolling**: 
+  - Adjust speed in *words-per-minute (WPM)* to mimic speech pacing.  
   - Pause/resume functionality.  
+- **Real-Time Metrics**: elapsed/remaining time (objective, clock-based measurement, independent of window size and screen resolution).
 - **Display Customization**: Modify font size and line spacing, and text scrolling rate *during* exercises.  
 - **Text Preparation**: Format raw text via TinyMCE (bold, headings, etc.) before scrolling.
 
