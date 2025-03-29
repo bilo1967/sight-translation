@@ -14,11 +14,13 @@ This tool has been conceived and developed for the Department of Interpretation 
 ## Use Cases  
 - **Didactics**: Trainers evaluate students under standardized conditions (same text/WPM, independently from windows size and screen resolution).  
 - **Self-Training**: Interpreters practice pacing and adaptability.  
-- **Assessment**: Objective benchmarks for speed/accuracy in interpretation exams.
+- **Assessment**: Objective benchmarks for speed/accuracy in interpretation exams.A
+
+## Privacy
+It entirely runs on your browser. Technical cookies are stored to save user interface preferences.
 
 ## Compatibility
 Works with modern browsers such as Chrome and derivatives, Firefox, Safari, both on computers and mobile devices.
-
 
 ## Dependencies
 - JQuery 3.x (via CDN)
@@ -32,6 +34,8 @@ Works with modern browsers such as Chrome and derivatives, Firefox, Safari, both
 - Toastr.JS (https://github.com/CodeSeven/toastr, local)
 - jquery-event-holdrepeat (https://github.com/bilo1967/jquery-event-holdrepeat, local)
 
+## Demo
+You can use it from our website: [scroller.ditlab.it](https://scroller.ditlab.it/)
 
 ## Setup  
 1. Create a local directory or the document root for a web site
