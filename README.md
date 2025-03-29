@@ -58,7 +58,7 @@ Developed for the **Department of Interpretation and Translation (DIT)** at the 
 
 ---
 
-## Dependencies  
+## Dependencies / Third-party libraries 
 
 - **CDN-Hosted**:  
   - jQuery 3.x  
