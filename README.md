@@ -16,6 +16,19 @@ This tool has been conceived and developed for the Department of Interpretation 
 - **Self-Training**: Interpreters practice pacing and adaptability.  
 - **Assessment**: Objective benchmarks for speed/accuracy in interpretation exams.  
 
+## Dependencies
+- JQuery 3.x (via CDN)
+- Bootstrap 5.x (via CDN)
+- FontAwesome 4.x (via CDN)
+- I18Next (via CDN)
+- TinyMCE 7.x (via CDN)
+- TinyMCE community localizations (local)
+- JS.Cookie (https://github.com/js-cookie/js-cookie, local)
+- Flag-Icons (https://github.com/lipis/flag-icons, local)
+- Toastr.JS (https://github.com/CodeSeven/toastr, local)
+- jquery-event-holdrepeat (https://github.com/bilo1967/jquery-event-holdrepeat, local)
+
+
 ## Setup  
 1. Create a local directory or the document root for a web site
 2. Enter your directory
