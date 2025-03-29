@@ -1,6 +1,7 @@
 # sight-translation - Simultaneous Interpretation Scroller  
-A web-based tool didactic tool for trainers and students of simultaneous interpretation, designed to practice and objectively evaluate sight translation performance. It simulates real-time speech flow by scrolling text at customizable speeds (WPM), offering objective performance tracking and adaptive display settings. 
-Users load or paste text, adjust scrolling speed (in words-per-minute), and customize readability (font size, spacing) during exercises. Real-time metrics (elapsed/remaining time) and pause functionality are included.  
+"Scroller" is a web-based didactic tool for trainers and students of simultaneous interpretation, designed to practice and objectively evaluate sight translation performance. It simulates real-time speech flow by scrolling text at customizable speeds (WPM), offering objective performance tracking and adaptive display settings. 
+Users can load or paste text, adjust scrolling speed (in words-per-minute), and customize readability (font size, spacing) during exercises. Real-time metrics (elapsed/remaining time) and pause functionality are included.
+This tool has been conceived and developed for the Department of Interpretation and Translation (DIT) at the University of Bologna by Gabriele Carioli.
 
 ## Key Features  
 - **Controlled Scrolling**: Adjust speed in *words-per-minute (WPM)* to mimic speech pacing.  
