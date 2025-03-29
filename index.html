@@ -1,0 +1,1195 @@
+﻿<!DOCTYPE HTML>
+<html lang="en"  _data-bs-theme="dark">
+<head>
+
+<meta charset="utf-8">
+<meta lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title >Traduzione a vista</title>
+
+<!-- JQuery v3.7 -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+<!-- Bootstrap v5.3 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+<!-- Bootstrap icons 1.11.3 -->
+<!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" -->
+
+<!-- FontAwesome -->
+<script src="https://use.fontawesome.com/7fcfdd6cf1.js"></script>
+
+<!-- JSCookies-->
+<script src="js/js.cookie.js"></script>
+
+<!-- Toastr -->
+<script src="js/toastr.min.js"></script>
+<link rel="stylesheet" href="css/toastr.min.css">
+
+<!-- icone bandiere -->
+<link rel="stylesheet" href="css/flag-icons.css?0">
+
+<!-- TinyMCE v7 
+<script src="js/tinymce.7/tinymce.min.js"></script>
+<script src="js/tinymce.7/tinymce-jquery.min.js"></script>
+-->
+<script src="https://cdn.jsdelivr.net/npm/tinymce@7.7.1/tinymce.min.js" referrerpolicy="origin"></script>
+<script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js" referrerpolicy="origin"></script>
+ 
+
+<!-- i18next (localizzazione) -->
+<script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/i18next.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.3/i18nextBrowserLanguageDetector.min.js"></script>
+<script src="js/i18n.js?4"></script>
+
+
+<!-- JQuery event-hold -->
+<script src="js/jquery-event-holdrepeat.min.js"></script>
+
+<style type="text/css">
+
+.unselectable {
+    user-select: none;
+}
+
+.form-range-thumb-bg {
+    background: yellow;
+}
+
+.ui-slider {
+    width: 120px;
+}
+
+.estimated-time-display {
+    color: white;
+}
+
+.elapsed-time-display, .remaining-time-display {
+    color: #FAFA33;
+}
+
+.speed-changer {
+    margin-bottom: 4px;
+    margin-top: 1px;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+}
+
+.bg-scroller-header {
+    background: #0E6CF6;
+    /*background: #09459c;*/
+    
+}
+
+.btn-scroller-header {
+    _background: #232F3E;
+    _border-color: #434F5E;
+    _color: #838F9E;
+    color: #8cb3ed;
+    background: #0E6CF6;
+}
+.btn-scroller-header:hover {
+    background_: #434F5E;
+    _border-color: #434F5E;
+    color: #EDEDED;
+    background: #0E6CF6;
+    
+}
+
+.btn-clear {
+    _color: #0EC5E9;
+    color: black;
+    background: #F8F9FA;
+    border-color: #0EC5E9;
+}
+.btn-clear:hover {
+    _color: black;
+    color: #0D6EFD;
+
+    background: white;
+    border-color: #0EC5E9;
+}
+
+.btn-fixed-width {
+    width: 3em;
+    height: 20pt !important;
+    padding-top: 2px;
+}
+
+
+.small-label {
+    font-size: 0.8rem;
+}
+
+
+#editor-container {
+    height: 100%;
+    display: flex;
+    align-items: stretch;   
+    flex-direction: column;    
+}
+
+#editor-textarea {
+   flex: 1;
+   min-height: 0;
+}
+
+
+#player-body {
+/*  background: #337ab7; */
+}
+
+/* 
+ * Ricalcolo automaticamente l'altezza del player (il container più esterno).
+ * Sottraggo dall'altezza della viewport quella dei margini
+*/
+#player-container, #editor-container {
+    --containers-margin: 4px;
+    /*
+    height: calc(100vh - 2*var(--containers-margin));
+    margin-bottom: var(--containers-margin);
+    margin-top: var(--containers-margin);
+    */
+    height: calc(100vh);
+    padding-bottom: var(--containers-margin);
+    padding-top: var(--containers-margin);
+    
+    background: #e1e9f5;
+}
+
+
+#sliding-context {
+    position:relative;
+    z-index: 1 ;
+    width: 100%;
+    overflow: hidden ;
+}
+
+#sliding-text{
+    position: absolute ;
+    z-index: 1 ;
+    overflow: hidden ;
+	width: 100%;
+	font-size: 18px;
+}
+
+#player-footer {
+    display: flex;
+    align-items: center;
+}
+
+.inline-block {
+    display:inline-block;
+}
+
+
+.toast-middle {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* bring your own prefixes */
+}
+
+</style>
+
+
+                                                     
+
+<script type="text/javascript">
+
+
+/*
+Icone di Bootstrap 5
+Stop    <i class="bi bi-stop-fill"></i>
+Play    <i class="bi bi-play-fill"></i>
+Rewind  <i class="bi bi-rewind-fill"></i>
+Undo    <i class="bi bi-arrow-counterclockwise"></i>
+Plus    <i class="bi bi-plus"></i>
+Minus   <i class="bi bi-dash"></i>
+*/
+
+// Costanti per la configurazione dello slider
+
+ 
+const speedSliderMax     = 320;
+const speedSliderMin     =   5;
+const speedSliderDefault = 100;
+const speedSliderStep    =   5;
+
+console.assert((speedSliderMax - speedSliderMin) % speedSliderStep == 0, 'Error setting slider parameters: '); 
+console.assert(speedSliderDefault % speedSliderStep == 0, 'Error setting slider default'); 
+console.assert(
+    (speedSliderMax % speedSliderStep == 0) && 
+    (speedSliderMin % speedSliderStep == 0) &&
+    (speedSliderMax > speedSliderMin) &&
+    (speedSliderMin >= 0) &&
+    (speedSliderMax >= 0 + speedSliderStep),
+    'Error setting slider minimum and maximum value'
+); 
+
+
+
+// Lingue configurate in TinyMCE. 
+// La chiave è il codice della lingua utilizzato nella app
+// Alcune sono definite col codice di localizzazione principale a 2 caratteri
+// altre con quello regionalizzato aa_AA. Usiamo questa costante per mappare
+// le nostre codifiche su quelle di TinyMCE
+// Per aggiungerne altre: https://www.tiny.cloud/get-tiny/language-packages/ 
+const mapLangToEditorLanguage = {
+    en:      'en',
+    it:      'it',
+    es:      'es',        
+    fr:      'fr_FR',
+    de:      'de',
+    ru:      'ru',    
+    default: 'en',
+};
+
+//
+// Le bandiere da associare alle lingue, sono riferite al paese e non alla lingua.
+// Quelle non elencate, sono in css/flags
+// La chiave è il codice della lingua utilizzato nella app
+//
+const mapLangToNation = {
+    en:      'gb',
+    it:      'it',
+    es:      'es',
+    fr:      'fr',
+    de:      'de',
+    ru:      'ru',
+    default: 'gb',
+};
+
+
+
+
+// 
+
+$(document).ready(function () {
+
+
+    var editorObject;   // Istanza principale di tinymce    
+    
+    var animation; // Riferimento all'animazione 
+    var animationIsPaused  = false;
+    var animationIsStopped = false;
+    
+    // reference di comodo ad alcuni elementi dell'interfaccia
+    const slidingContainer = $('#sliding-context');
+    const slidingContent   = $('#sliding-text');
+    const speedSlider      = $('#speed-slider');
+    const playerContainer  = $('#player-container');
+    const editorContainer  = $('#editor-container');
+    
+    let frameStartTime;
+    let currentPosition    = 0;
+    
+    var wordCount;
+
+    // La lingua dell'interfaccia di tinymce non può essere cambiata al volo
+    // La rileviamo qui, preferenzialmente dai cookie e in secondo luogo 
+    // quello determinato da i18next o, in alternativa, l'inglese
+    const editorLanguage = Cookies.get('editor-language') ?? mapEditorLanguage(i18next.language ?? 'default');
+    Cookies.set('editor-language', editorLanguage);
+    
+    // Imposto il linguaggio dell'interfaccia dell'app
+    switchLanguage();
+    
+    // Carica la velocità salvata nei cookie, se presente
+    if (Cookies.get('text-speed')) {
+        $('#text-speed-combo').val(Cookies.get('text-speed'));
+    }
+
+    
+    
+    /**
+     * Funzione principale per l'animazione dello scorrimento del testo.
+     * @param {number} timeStamp - Timestamp dell'animazione.
+     */
+    function animate(timeStamp = 0) {
+
+        if (!frameStartTime) frameStartTime = timeStamp;
+
+        let elapsed = (timeStamp - frameStartTime) / 1000.0; // Tempo trascorso in secondi 
+        frameStartTime = timeStamp;
+
+        const containerHeight = slidingContainer.height();
+        const contentHeight = slidingContent.outerHeight(true);
+        const maxScroll = (containerHeight + contentHeight);
+
+        if (!animationIsPaused && !animationIsStopped) {
+
+            const speed =  wpm2pps( speedSlider.val() );
+            
+            const dist = speed * elapsed;
+        
+            currentPosition -= dist;
+            if (currentPosition <= -maxScroll) {
+                $('#stop').trigger('click');
+            }
+
+            slidingContent.css('transform', `translateY(${currentPosition}px)`);
+         }
+        animation = requestAnimationFrame(animate);
+    }
+    
+
+    /**
+     * Avvia l'animazione dello scorrimento.
+     */
+    function startAnimation() {
+        statsStart();
+        animationIsPaused = false;
+        animationIsStopped = false;
+        frameStartTime = 0;
+        animation = animate();
+        showPauseSpinner(false);
+    }
+
+    /**
+     * Ferma l'animazione dello scorrimento.
+     */
+    function stopAnimation() {
+        cancelAnimationFrame(animation);
+    }
+    
+    
+    /**
+     * Mostra/nasconde l'indicatore di pausa (uno)
+     * spinner al centro dello schermo di scorrimento)
+     */
+    function showPauseSpinner(show) {
+        if (show) {
+            $('#paused-text').css('display', 'block');
+            $('#paused-spinner').addClass("spinner-border");
+        } else {
+            $('#paused-text').css('display', 'none');
+            $('#paused-spinner').removeClass("spinner-border");        
+        }
+    }
+    
+    /**
+     * Attiva o disattiva l'animazione.
+     */
+    function toggleAnimation() {
+        const icon = $('#start-pause i');
+        icon.toggleClass('fa-start fa-pause');
+
+        if (animationIsStopped || icon.hasClass('fa-pause')) {
+
+            showPauseSpinner(false);
+            
+            startAnimation();
+        } else {
+
+            showPauseSpinner(true);
+
+            animationIsPaused = true;
+            animationIsStopped = false;
+            stopAnimation();
+        }
+    }
+  
+
+    /**
+     * Ferma l'animazione e "riavvolge"
+     */ 
+    function stopAndResetAnimation() {
+        $('#start-pause i').removeClass('fa-pause').addClass('fa-start');
+        showPauseSpinner(false);
+        animationIsStopped = true;
+        animationIsPaused = false;
+        stopAnimation();
+        slidingContent.css('transform', `translateY(0px)`);
+        currentPosition = 0;
+        statsReset();
+    }    
+    
+    /**
+     * Torna indietro nello scorrimento di n secondi.
+     * @param {number} seconds - Numero di secondi da tornare indietro.
+     */
+    function rewindAnimation(seconds) {
+        if (animationIsStopped || !seconds || seconds <= 0) return;
+        
+        // Calcola di quanti pixel riavvolgere lo scroller
+        const speed = wpm2pps(speedSlider.val());
+        const pixelsToRewind = speed * seconds;
+
+        // Calcola la nuova posizione
+        const newPosition = currentPosition + pixelsToRewind;
+        if (newPosition > 0) {
+            currentPosition = 0; // Non andare oltre l'inizio
+        } else {
+            currentPosition = newPosition;
+        }
+        
+        // Applica la trasformazione
+        slidingContent.css('transform', `translateY(${currentPosition}px)`);
+       
+        statsUpdate();
+    }    
+    
+    
+    // Gestione delle statistiche
+    const statsUpdateInterval = 100; // intervallo aggiornamento statistiche in ms
+    var statsTimerId = null;
+    let statsStartTime;
+    let statsElapsedTime;
+    let statsCurrentTime;
+    let statsRemainingTime;
+    
+    /**
+     * Avvia il timer per l'aggiornamento delle statistiche.
+     */    
+    function statsStart() {
+        if (!statsTimerId) statsTimerId = setInterval(statsUpdate, statsUpdateInterval);
+        statsStartTime = Date.now();
+        statsCurrentTime = statsStartTime;
+        if (animationIsStopped) {
+            statsElapsedTime = 0;
+            $('#elapsed-time').text("00:00");
+        }
+    }
+
+    function statsStop() {
+        //if (statsTimerId) clearInterval(statsTimerId);
+    }
+
+
+    /**
+     * Aggiorna le statistiche visualizzate.
+     */    
+    function statsUpdate() {
+ 
+        if (animationIsStopped) return;
+        
+        let t;
+        
+        let now = Date.now();
+
+        statsElapsedTime += (now - statsCurrentTime);
+        statsCurrentTime = now;
+        
+        const wpm = speedSlider.val();
+        
+        $('#current-rate').text(wpm);
+        
+        const speed = wpm2pps(wpm);
+
+        // Velocità effettiva in pixel/s
+        t = Math.round(speed * 10)/10;
+        if ($('#true-speed').text() != t) $('#true-speed').text(t);
+        
+        // Tempo stimato, in secondi
+        t = (slidingContent.height() + slidingContainer.height())/speed;
+        
+        // Converto il tempo in formato 00:00:00
+        t = msToTime(t * 1000); 
+        if ($('#estimated-time').text() != t) $('#estimated-time').text(t);
+
+        // tempo passato
+        t = msToTime(statsElapsedTime);
+        if ($('#elapsed-time').text() != t) $('#elapsed-time').text(t);
+
+        // calcolo del tempo mancante
+        t = msToTime(1000 * (slidingContent.height() + slidingContainer.height() + currentPosition)/speed);
+        if ($('#remaining-time').text() != t) $('#remaining-time').text(t);
+        
+    }
+
+
+    function statsReset() {
+        if (statsTimerId) {
+            clearInterval(statsTimerId);
+            statsTimerId = null;
+        }
+        
+        statsStartTime = null;
+        statsCurrentTime = null;
+        statsElapsedTime = 0;
+    }
+    
+    /**
+     * Converte parole al minuto (WPM) in pixel al secondo (PPS).
+     * @param {number} rate - Velocità in parole al minuto.
+     * @returns {number} Velocità in pixel al secondo.
+     */
+    function wpm2pps(rate) {
+    
+        if (isNaN(rate) || isNaN(wordCount) || isNaN(currentPosition)) return 0;
+    
+        const totalSpace = slidingContent.height() + slidingContainer.height();
+        const currentSpace = totalSpace + currentPosition; // currentPosition è negativo
+        
+        const t = 60 * wordCount / rate;
+        
+        return totalSpace / t;
+    }
+    
+
+
+    ///////////////
+    //           //
+    // Controlli //
+    //           //
+    ///////////////
+
+
+	//
+    // Inizializzazione dello slider
+	//
+    speedSlider.attr('min', speedSliderMin);
+    speedSlider.attr('max', speedSliderMax);
+    speedSlider.attr('step', speedSliderStep);
+    speedSlider.val(speedSliderDefault);
+
+
+    //
+    // Slider velocità che cambia valore
+    //
+    speedSlider.on('input', (e) => {
+        $('#current-rate').text($(this).val());
+        statsUpdate();
+    });
+
+    //
+    // Incrementa/decrementa velocità coi bottoni
+    // sia quando vengono cliccati che quando vengono tenuti premuti
+    //
+
+    
+    
+
+    $(document).on('click', '#inc-text-speed', function (e) {
+        changeTextSpeed(speedSlider.attr("step"));
+    });
+    $(document).on('click', '#dec-text-speed', function (e) {
+        changeTextSpeed(-speedSlider.attr("step"));
+    });  
+
+
+    // Quando dec-text-speed o inc-text-speed vengono tenuti premuti,
+    // attiva la ripetizione autometica dell'azione di click
+    // Configura la ripetizione con valori sensati
+    const options = {
+//      acceleration: 0.5,
+//      accelerateAfter: 5,
+        repeatInterval: 20, 
+        maxIterations: (speedSliderMax - speedSliderMin) / speedSliderStep,
+    };
+    
+    //$('#dec-text-speed').on('holdrepeat', options, function (e) {
+    $(document).on('holdrepeat', '#dec-text-speed', options, function (e) {
+        changeTextSpeed(-speedSlider.attr("step"));
+    });
+    //$('#inc-text-speed').on('holdrepeat', options, function (e) {
+
+    $(document).on('holdrepeat', '#inc-text-speed', options, function (e) {
+        changeTextSpeed(speedSlider.attr("step"));
+    });    
+
+ 
+    //
+    // Incrementa/decrementa dimensione font
+    //
+    $(document).on('click', '#inc-font-size', function (e) {
+        adjustFontSize(1);
+    });    
+    $(document).on('click', '#dec-font-size', function (e) {
+        adjustFontSize(-1);
+    });    
+    
+    
+    //
+    // Incrementa/decrementa interlinea
+    //
+    $(document).on('click', '#inc-line-height', function(e) {
+        adjustLineHeight(2);
+    });
+    $(document).on('click', '#dec-line-height', function(e) {
+        adjustLineHeight(-2);
+    });
+
+    //
+    // Start-pause 
+    // 
+    $(document).on('click', '#start-pause', function(e) {
+        toggleAnimation();
+    });
+    
+    //
+	// Stop
+	//
+    $(document).on('click', '#stop', function(e) {
+        stopAndResetAnimation();
+    });
+    
+
+    // barra spaziatrice = click su start-pause
+    $(document).on('keypress', function(e) {
+        if (e.which == 32 && editorContainer.css('display') == 'none') {
+	        $('#start-pause').trigger('click');
+            e.preventDefault();
+        }
+    });    
+    
+    // Gestore dell'evento per il bottone "Rewind"
+    $(document).on('click', '#rewind-button', function (e) {
+        e.preventDefault();
+        rewindAnimation(5); // Torna indietro di n secondi
+    });
+
+
+    function changeTextSpeed(step) {
+    
+        const v = parseInt(speedSlider.val()) + parseInt(step); 
+        speedSlider.val(v);
+        $('#current-rate').text(v);
+        statsUpdate();        
+
+    }    
+
+    
+    /**
+     *  EDITOR
+     */
+
+    $('#editor-textarea').tinymce({
+
+        toolbar: [
+            'undo redo cut copy removeformat | blocks  fontfamily fontsize |  forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent blockquote numlist bullist | lineheight',
+        ],
+        //menubar: 'file edit insert view format tools help', // omesso: view
+        menubar:   'file edit insert      format tools help',
+        plugins: "wordcount emoticons charmap insertdatetime searchreplace lists advlist autosave help",
+        theme: 'silver',
+        setup: function (ed) {
+            ed.on('init', function(args) {
+                // Ora l'editor è istanziato e posso copiare il riferimento ad esso
+  				editorObject = this;  // = tinymce.activeEditor
+//				this.execCommand("fontSize", false, "20px");
+//              this.execCommand("fontName", false, "Playfair Display");
+            });
+        },
+        font_size_formats: '8pt 10pt 12pt 14pt 16pt 18pt 20pt 22pt 24pt 36pt 48pt',
+        autosave_ask_before_unload: false,
+        autosave_interval: '30s',
+        autosave_restore_when_empty: true,
+        autosave_retention: '30m',
+        //height: '400px',
+        //autoresize: '100%', // aggiungere resize ai plugin,
+        language: editorLanguage,
+        language_url: "/js/tinymce.7/langs/" + editorLanguage + '.js',
+        visual: false, // non mostrare caratteri nascosti, vedi menu "view"
+        branding: false,
+        promotion: false,
+        license_key: 'gpl',
+    });
+    
+	//
+	// Attiva riproduzione
+	// 
+	$(document).on('click', '#start-player', function(e) {
+        e.preventDefault();
+       
+
+        let v = $('#text-speed-combo').val();
+        
+        speedSlider.val(v);
+        $('#current-rate').text(v);
+       
+        slidingContent.html($('#editor-textarea').val());
+        editorContainer.fadeOut(200).hide();
+        playerContainer.fadeIn(200);
+        $(window).trigger('resize');
+
+
+        // Conteggio le parole qui perché non cambiano
+        // durante lo scrolling e non ha senso ricalcolarle
+        // a ogni frame di animazione
+        
+        wordCount = editorObject.plugins.wordcount.body.getWordCount(); 
+        $('#words-in-text').text(wordCount);
+
+        statsReset();
+        $('#start-pause').trigger('click');
+       
+	});
+	
+    //
+    // Imposta la velocità iniziale
+    //
+	$(document).on('change', '#text-speed-combo', function(e) {
+	    e.preventDefault();
+        let v = $('#text-speed-combo').val();
+        
+        Cookies.set('text-speed', v, {expires: 365});
+        
+        speedSlider.val(v);
+        $('#current-rate').text(v);
+	});
+	
+	
+    $(window).resize(function() {
+
+        var w = playerContainer.width(),
+            h = playerContainer.height() 
+                - parseInt(playerContainer.css('margin-top'))
+                - parseInt(playerContainer.css('margin-bottom')),
+			d = $('#player-body').outerHeight() 
+			    - $('#player-body').height()
+				+ $('#player-footer').outerHeight()
+                + $('#player-title-row').outerHeight() ;
+
+		slidingContainer.css('height', h - slidingContainer.position().top - d);
+        
+		slidingContent.css('top', slidingContainer.height());
+	});
+	$(document).on('click', '#resizeScreenButton', function(e) {
+		e.preventDefault();
+	    slidingContainer.css('height', 400);
+	    $(window).trigger('resize');
+	});
+
+    
+    //
+	// Back to editor
+	//
+    $(document).on('click', '#back-to-editor', function(e) {
+	    e.preventDefault();
+		$('#stop').trigger('click');
+		playerContainer.fadeOut(200).hide();
+		editorContainer.fadeIn(200);
+    });
+
+    //
+    // Gestisco il cambiamento dell'icona nel selettore della lingua
+    //
+    $('#languageDropdown .dropdown-item').on('click', function() {
+        const lang = $(this).data('lang') ?? 'en';
+        const icon = getLangIcon(lang);
+        $('#languageDropdownButton').html(icon);
+        
+        switchLanguage(lang);
+    });
+
+    // Da eseguire appena la pagina è caricata    
+	$(window).trigger('resize');
+	playerContainer.hide();
+	
+});
+
+
+// Utility varie
+
+function msToTime(milliseconds) {
+    // Converti i millisecondi in secondi
+    let totalSeconds = Math.floor(milliseconds / 1000);
+
+    // Calcola le ore, i minuti e i secondi
+    let hours = Math.floor(totalSeconds / 3600);
+    let minutes = Math.floor((totalSeconds % 3600) / 60);
+    let seconds = totalSeconds % 60;
+
+    // Aggiungi uno zero iniziale se necessario
+    let formattedHours = String(hours).padStart(2, '0');
+    let formattedMinutes = String(minutes).padStart(2, '0');
+    let formattedSeconds = String(seconds).padStart(2, '0');
+
+    // Restituisci il tempo formattato
+    return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
+}
+
+
+/**
+ * Regola la dimensione del font del testo.
+ * @param {number} step - Incremento/decremento della dimensione del font.
+ */
+function adjustFontSize(step) {
+    $('#sliding-text *').each(function () {
+        let fontSize = parseInt($(this).css("font-size"));
+        fontSize += step;
+        fontSize = Math.min(Math.max(fontSize, 8), 100);
+        $(this).css("font-size", fontSize + 'px');
+    });
+}
+
+/**
+ * Regola l'interlinea del testo.
+ * @param {number} step - Incremento/decremento dell'interlinea.
+ */
+function adjustLineHeight(step) {
+    $('#sliding-text > *').each(function () {
+        let lineHeight = Math.round(parseFloat($(this).css("line-height")));
+        lineHeight = Math.max(lineHeight + step, 12);
+        $(this).css("line-height", lineHeight + "px");
+    });
+}
+
+
+function switchLanguage(lang = null) {
+
+    // Se non viene passata nessuna lingua come parametro
+    // allora uso quella nei cookie, se non c'è uso quella
+    // rilevata da i18next oppure e, se non ne è stata 
+    // rilavata nessuna, l'inglese
+
+    lang = lang ?? getCurrentLanguage();
+    lang = lang.substring(0, 2).toLowerCase();
+    
+    // questa funzione è definita in i18n.js
+    changeLanguage(lang);
+
+    // salvo la lingua nei cookie
+    saveLanguage(lang);    
+}
+
+function getCurrentLanguage() {
+    const lang = Cookies.get('language') ?? i18next.language ?? 'en';
+    return lang.substring(0, 2).toLowerCase();
+}
+
+function mapEditorLanguage(lang) {
+    lang = lang.substring(0, 2).toLowerCase() ?? 'default';
+    return mapLangToEditorLanguage[lang];
+}
+
+
+//
+// Genera il codice HTML per visualizzare la bandierina
+//
+function getLangIcon(lang) {
+
+    lang = mapLangToNation[lang.substring(0, 2).toLowerCase() ??  'en'];
+    
+    return '<i class="flag-icon flag-icon-squared flag-icon-' + lang + '"></i>';
+}
+
+function saveLanguage(lang) {
+
+    // Considero solo il prefisso di 2 caratteri (it_IT, fr-FR, ecc.)
+    if (lang) lang = lang.substring(0, 2).toLowerCase() ?? 'en';
+    
+    const edLang = mapEditorLanguage(lang);
+    
+    // Icona per la lingua dell'interfaccia
+    const langIcon = getLangIcon(lang);
+    
+    currentEditorLanguage = Cookies.get('editor-language'); // Serve che sia globale    
+    
+    if (currentEditorLanguage != edLang) {
+        
+        toastr.success(
+            $.t('toastr.mustreload'),
+            $.t('toastr.langchanged'),
+            {"positionClass": "toast-middle", timeOut: 3000}
+        );
+
+    }
+
+    $('#languageDropdownButton').html(langIcon);
+
+    Cookies.set('language', lang, {expires: 365});
+    Cookies.set('editor-language', edLang, {expires: 365});
+}
+
+</script>
+</head>
+<body>
+
+
+<!-- begin: editor -->
+<div id ="editor-container" class="container-fluid">
+
+    <div class="row unselectable">
+        <div class="col-10 ">
+            <h3 data-i18n="editor.title">Traduzione a vista</h3>        
+        </div>
+    
+        <div class="col-2 text-end">
+
+            <!-- Selettore di lingua -->
+            <div class="dropdown" data-i18n="[title]editor.selectlanguage" id="languageDropdown">
+              <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" id="languageDropdownButton" data-bs-toggle="dropdown" aria-expanded="false">🌐<!-- Icona globo --></button>
+              <ul class="dropdown-menu" aria-labelledby="languageDropdownButton">
+                  <li>
+                    <button class="dropdown-item" data-lang="it">
+                        <i class="flag-icon flag-icon-it"></i>
+                        Italiano
+                    </button>
+                </li>
+                <li>
+                    <button data-lang="en" class="dropdown-item">
+                        <i class="flag-icon flag-icon-gb"></i>
+                        English
+                    </button>
+                </li>
+                <li>
+                    <button data-lang="es" class="dropdown-item">
+                        <i class="flag-icon flag-icon-es"></i>
+                        Español
+                    </button>
+                </li>
+                <li>
+                    <button data-lang="fr" class="dropdown-item disabled" disabled>
+                        <i class="flag-icon flag-icon-fr"></i>
+                        Français
+                    </button>
+                </li>
+                <li>
+                    <button data-lang="de" class="dropdown-item disabled" disabled>
+                        <i class="flag-icon flag-icon-de"></i>
+                        Deutsch
+                    </button>
+                </li>
+                <li>
+                    <button  data-lang="ru" class="dropdown-item disabled" disabled>
+                        <i class="flag-icon flag-icon-ru"></i>
+                        Русский
+                    </button>
+                </li>                
+              </ul>
+            </div>
+
+        </div>
+        
+     
+        
+        
+    </div>
+    
+
+    <textarea  id="editor-textarea" name="editor-textarea">
+        <p><span style="font-weight: bold">Sostituite questo testo con il vostro...</span></p>
+        <p>C'era un muro. Non pareva importante. Era fatto di ciottoli uniti senza pretese, con un po' di malta. Gli adulti potevano guardare senza sforzo al di là del muro, e anche i bambini non avevano difficoltà di scavalcarlo.
+        Dove incontrava la strada, invece di avere un cancello degenerava in una pura geometria, una linea, un'idea di confine. Ma l'idea era reale. E importante. Da sette generazioni non c'era nulla di più importante, al mondo, di
+        quel muro.</p>
+        <p>Come ogni altro muro, anch'esso era ambiguo, bifronte. Quel che stava al suo interno e quel che stava al suo esterno dipendevano dal lato da cui lo
+        si osservava.</p>
+        <p>Osservato da un lato, il muro recingeva un campo spoglio, di una sessantina di acri, chiamato <i>Porto di Anarres</i>. Il campo comprendeva un paio di grosse gru, una piazzola di atterraggio per i razzi, tre magazzini, una rimessa per gli autocarri e un dormitorio. Il dormitorio aveva un aspetto duraturo, severo, melanconico. Non si vedevano giardini, né bambini: era chiaro che non vi abitava nessuno, che chi arrivava non si fermava a lungo.</p>
+        <p>In effetti si trattava di una zona di quarantena. Il muro chiudeva al suo interno non soltanto il campo di atterraggio, ma anche le navi che scendevano dallo spazio, gli uomini che giungevano con le navi, i mondi da cui provenivano e, complessivamente, il resto dell'universo. <i>Chiudeva nel suo interno l'universo e lasciava fuori Anarres</i>, libera.</p>
+        <p>Osservato dall'altro lato, il muro chiudeva Anarres. <i>Al suo interno c'era tutto il pianeta</i>: un grande campo di prigionia, isolato dagli altri mondi e dagli altri uomini, in quarantena. </p>
+        <p>...</p>
+        <p>Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there &mdash; on a mote of dust suspended in a sunbeam.</p>
+
+        <p>The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.</p>
+
+        <p>Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.</p>
+
+        <p>The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment the Earth is where we make our stand.</p>
+
+        <p>It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.</p>
+        
+    </textarea>
+	
+    <div class="row mt-2 mb-2 unselectable">
+        <div class="col-sm-10 ">
+            <div class="input-group" style="width: 25rem">
+                <span class="input-group-text" data-i18n="editor.scrollrate">Velocità di scorrimento</span>
+                <select id="text-speed-combo" name="text-speed-combo" class="form-select">
+                    <option value="80"  data-i18n='editor.wpm0'>80 parole/minuto</option>
+                    <option value="100" data-i18n='editor.wpm1'>100 parole/minuto</option>
+                    <option value="120" data-i18n='editor.wpm2' selected="selected">120 parole/minuto</option>
+                    <option value="140" data-i18n='editor.wpm3'>140 parole/minuto</option>
+                    <option value="160" data-i18n='editor.wpm4'>160 parole/minuto</option>
+                    <option value="180" data-i18n='editor.wpm5'>180 parole/minuto</option>
+                    <option value="200" data-i18n='editor.wpm6'>200 parole/minuto</option>
+                    <option value="220" data-i18n='editor.wpm7'>220 parole/minuto</option>
+                    <option value="230" data-i18n='editor.wpm8'>230 parole/minuto</option>
+                    <option value="240" data-i18n='editor.wpm9'>240 parole/minuto</option>
+                </select>
+            </div>
+        </div>
+        <div class="col-2 text-end">
+            <div id="start-player" class="btn btn-primary"><i class="fa fa-laptop float-right"></i>&nbsp;<span data-i18n='editor.runscroller'>Visualizza</span></div>
+        </div>
+    </div>
+        
+</div>
+<!-- end: editor -->
+
+
+<!-- begin: player -->
+<div id="player-container" class="container-fluid"  style="min-width: 460px!important">
+
+    <div id="player-title-row" class="unselectable d-flex justify-content-between align-items-center  mb-1" >
+    
+        <div>
+            <h3  data-i18n="player.title">Traduzione a vista</h3>
+        </div>
+        
+        <div class="d-flex align-items-center">
+             
+            <div class="small-label" for="back-to-editor" data-i18n="player.back">Chiudi e torna all'editor</div><div>&nbsp;</div>
+            <div id="back-to-editor" class="btn btn-danger"  data-i18n="[title]descr.xxx" data-i18n="[title]descr.back" title="Torna all'editor di testo e carica un altro contenuto">
+                <i class="fa fa-times" ></i> 
+            </div>
+             
+        </div>
+    
+    </div>    
+    
+    
+    <!-- begin: scroller  -->
+    <div class="card text-white bg-scroller-header ">
+        
+		<div class="card-header unselectable d-flex justify-content-between align-items-center ps-1 pe-1 pt-0 pb-0">
+            
+            <!-- Player -->
+            <div  class="text-center me-1 ms-0  p-0" >
+                <span  class="small-label" data-i18n="player.player">Player</span>
+                <div class="m-0 p-0"> 
+                    <div  id="start-pause" class="btn btn-clear  btn-fixed-width btn-sm"   
+                        data-i18n="[title]descr.play" title="Riproduci/pausa">
+                        <i class="fa fa-play"></i>
+                    </div>
+                    <div id="stop" class="btn btn-clear  btn-fixed-width btn-sm"  
+                        data-i18n="[title]descr.stop" title="Interrompi la riproduzione">
+                        <i class="fa fa-stop"></i> 
+                    </div>
+
+                    <div id="rewind-button" class="btn btn-clear btn-sm btn-fixed-width" 
+                        data-i18n="[title]descr.rewind" title="Torna indietro di 5 secondi">
+                        <i class="fa fa-undo"></i> 
+                    </div>
+                </div>
+            </div>
+			
+            <!-- scroll speed -->
+            <div  class="text-center ms-1 me-1 mt-1 p-0">
+                <span class="small-label"  data-i18n="player.scrollrate">Velocità di scorrimento</span>
+                <div class="d-flex justify-content-between align-items-center m-0 p-0">
+                    <div id="dec-text-speed" class="btn btn-scroller-header btn-sm btn-fixed-width speed-changer" data-i18n="[title]descr.decspeed" title="Diminuisci la velocità di scorrimento">
+                        <i class="fa fa-minus"></i>
+                    </div>
+
+                    <div class="inline-block mt-0 mb-0 me-1 ms-1 d-none d-md-block" style="padding-top:3px">
+                      <input type="range" class="form-range" id="speed-slider" data-i18n="[title]descr.setspeed">
+                    </div>
+                    
+                    <div id="inc-text-speed" class="btn btn-scroller-header btn-sm btn-fixed-width speed-changer"  data-i18n="[title]descr.incspeed" title="Aumenta la velocità di scorrimento">
+                        <i class="fa fa-plus"></i>
+                    </div>
+               </div>
+            </div>
+            
+            <!-- grow -->
+            <div class="flex-grow-1 m-0 p-0"></div>
+
+            <!-- line height -->
+            <div class="text-center ms-0 me-0 p-0">
+                <span class="small-label" data-i18n="player.lineheight">Interlinea</span>
+                <div div class="ms-0 me-0 p-0">
+                    <div  id="dec-line-height" class="btn btn-clear btn-sm btn-fixed-width " data-i18n="[title]descr.decline" title="diminuisci l'interlinea">
+                        <i class="fa fa-minus"></i>
+                    </div>
+                    <div id="inc-line-height" class="btn btn-clear btn-sm btn-fixed-width " data-i18n="[title]descr.incline" title="aumenta l'interlinea">
+                        <i class="fa fa-plus"></i>
+                    </div>
+                </div>
+            </div>
+			
+            <!-- font size -->
+            <div  class="text-center ms-2 me-0 p-0">
+                <span class="small-label" data-i18n="player.fontsize">Dim. testo</span>
+                <div div class="ms-0 me-0 p-0">
+                    <div id="dec-font-size" class="btn btn-clear btn-sm btn-fixed-width font-sizer "  data-i18n="[title]descr.decfont" title="Diminuisci la dimensione dei caratteri">
+                        <i class="fa fa-font"></i><i class="fa-lg"></i>
+                    </div>
+                    <div id="inc-font-size" class="btn btn-clear btn-sm btn-fixed-width font-sizer "  data-i18n="[title]descr.incfont" title="Aumenta la dimensione dei caratteri">
+                        <i class="fa fa-font fa-lg"></i><i class="fa-lg"></i>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div id="player-body" class="mb-0 mt-0 pb-1 pt-1 ps-2 pe-2 card-body text-body bg-white" >
+            <div id="sliding-context" class="position-relative">
+
+                <!-- indicatore di pausa al centro del blocco di scorrimento -->
+                <div id="paused-spinner-container" class="w-100 h-100 d-flex flex-column align-items-center bg-white justify-content-center position-absolute bg-transparent text-primary" style="z-index: 100">
+                    <div id="paused-spinner" class="spinner-border" role="status" style="width: 4rem; height: 4rem;">
+                        <span class="visually-hidden">...</span>
+                        <!-- anything here will rotate-->
+                    </div>
+                    <div id="paused-text" class="fs-3 p-0 m-0" style="background-color: rgba(255,255,255,0.75)!important;" data-i18n="player.paused">Paused</div>
+                </div>
+                <!-- fine indicatore -->
+                <div id="sliding-text" class="unselectable"></div>
+            </div>
+            
+        </div>
+		
+	
+        <div id="player-footer" class="card-footer d-flex justify-content-between align-items-center pb-0 pt-0 mb-0 mt-0 ps-2 pe-2">
+        
+            <div class="d-flex align-items-center me-auto mt-1 unselectable">
+
+                <div class="estimated-time-display m-0 p-0 text-center">
+                    <div class="small-label m-0 p-0" data-i18n="player.wpm">parole/min</div>
+                    <div id="current-rate" class="m-0 p-0 fw-bold">0</div>
+                </div>
+
+                <!-- d-none d-md-block: visibile solo su schermi medio-grandi -->
+                <div class="ms-2 me-2 d-none d-md-block"></div>
+
+                <!-- d-none d-md-block: visibile solo su schermi medio-grandi -->
+                <div class="estimated-time-display m-0 ps-2 text-center border-start border-warning-subtle d-none d-md-block">
+                    <div class="small-label m-0 p-0"  data-i18n="player.pps">pixel/s</div>
+                    <div id="true-speed" class="m-0 p-0">0</div>
+                </div>
+                
+                <!-- d-none d-md-block: visibile solo su schermi medio-grandi -->
+                <div class="ms-2 me-2 d-none d-md-block"></div>
+
+                <!-- d-none d-md-block: visibile solo su schermi medio-grandi -->
+                <div class="estimated-time-display m-0 ps-2 text-center border-start border-warning-subtle d-none d-md-block">
+                    <div class="small-label m-0 p-0" data-i18n="player.words">parole</div>
+                    <div id="words-in-text" class="m-0 p-0">0</div>
+                </div>
+                
+                <div class="ms-2 me-2"></div>
+                
+                <div class="estimated-time-display m-0 ps-2 text-center border-start border-warning-subtle">
+                    <div class="small-label m-0 p-0" data-i18n="player.totaltime">durata</div>
+                    <div id="estimated-time" class="m-0 p-0">00:00:00</div>
+                </div>
+                
+                <div class="ms-2 me-2"></div>
+                
+                <div class="elapsed-time-display m-0 ps-2 text-center border-start border-warning-subtle">
+                    <div class="small-label m-0 p-0" data-i18n="player.elapsedtime">t. trascorso</div>
+                    <div id="elapsed-time" class="m-0 p-0 fw-bold">00:00</div>
+                </div>
+                
+                <div class="ms-2 me-2"></div>
+                
+                <div class="remaining-time-display m-0 ps-2 text-center border-start border-warning-subtle">
+                    <div class="small-label m-0 p-0" data-i18n="player.remainingtime">t. mancante</div>
+                    <div id="remaining-time" class="m-0 p-0 fw-bold">00:00</div>
+                </div>
+            </div>
+
+            <!-- div class="d-flex align-items-center">
+                <div class="m-0 mt-1 p-0">
+                     <span  class="small-label">Riadatta alla pagina</span>&nbsp; <div id="resizeScreenButton" class="btn btn-info"><i class="fa fa-window-restore"></i></div>
+                </div>
+            </div -->
+
+        </div>
+    
+    </div>
+    <!-- end: scroller -->
+
+</div>
+<!-- end: player -->
+
+
+</body>
+</html>
