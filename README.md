@@ -68,7 +68,7 @@ Developed for the [Department of Interpretation and Translation (DIT)](https://d
   - TinyMCE 7.x  
 
 - **Local Files**:  
-  - TinyMCE community localizations  
+  - [TinyMCE Community language packs](https://www.tiny.cloud/get-tiny/language-packages/)
   - [js-cookie](https://github.com/js-cookie/js-cookie)  
   - [flag-icons](https://github.com/lipis/flag-icons)  
   - [toastr.js](https://github.com/CodeSeven/toastr)  
