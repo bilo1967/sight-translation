@@ -4,7 +4,7 @@
 
 Developed for the [Department of Interpretation and Translation (DIT)](https://dit.unibo.it/) at the University of Bologna by **Gabriele Carioli**.  
 
-**Live Demo**: [scroller.ditlab.it](https://scroller.ditlab.it/)  
+**Live Demo**: [scroller.dipintra.it](https://scroller.dipintra.it/)  
 
 ---
 
