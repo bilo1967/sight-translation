@@ -12,7 +12,11 @@
 <meta name="title" content="Scroller - Web Tool for Simultaneous Interpreting Training | University of Bologna">
 <meta name="description" content="Train and evaluate sight translation skills objectively. Adjust text scrolling speed in WPM (Words Per Minute), customize readability, and track performance. Developed by the University of Bologna for interpreters and trainers.">
 
-<!-- More SEO stuff here ... -->
+<!-- SEO stuff here -->
+
+
+
+
 
 
 <!-- JQuery v3.7 -->
@@ -41,13 +45,13 @@
 <!-- TinyMCE v7 -->
 <script src="https://cdn.jsdelivr.net/npm/tinymce@7.7.1/tinymce.min.js" referrerpolicy="origin"></script>
 <script src="https://cdn.jsdelivr.net/npm/@tinymce/tinymce-jquery@2/dist/tinymce-jquery.min.js" referrerpolicy="origin"></script>
- 
+
 
 <!-- i18next (localizzazione) -->
 <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/i18next.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/jquery-i18next@1.2.1/jquery-i18next.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/i18next-browser-languagedetector@6.1.3/i18nextBrowserLanguageDetector.min.js"></script>
-<script src="js/i18n.js?4"></script>
+<script src="js/i18n.js?5"></script>
 
 
 <!-- JQuery event-hold -->
@@ -86,7 +90,7 @@
 .bg-scroller-header {
     background: #0E6CF6;
     /*background: #09459c;*/
-    
+
 }
 
 .btn-scroller-header {
@@ -101,7 +105,7 @@
     _border-color: #434F5E;
     color: #EDEDED;
     background: #0E6CF6;
-    
+
 }
 
 .btn-clear {
@@ -133,8 +137,8 @@
 #editor-container {
     height: 100%;
     display: flex;
-    align-items: stretch;   
-    flex-direction: column;    
+    align-items: stretch;
+    flex-direction: column;
 }
 
 #editor-textarea {
@@ -147,7 +151,7 @@
 /*  background: #337ab7; */
 }
 
-/* 
+/*
  * Ricalcolo automaticamente l'altezza del player (il container più esterno).
  * Sottraggo dall'altezza della viewport quella dei margini
 */
@@ -161,7 +165,7 @@
     height: calc(100vh);
     padding-bottom: var(--containers-margin);
     padding-top: var(--containers-margin);
-    
+
     background: #e1e9f5;
 }
 
@@ -202,7 +206,7 @@
 
 
 <!-- Load scroller code -->
-<script src="js/dipintra-scroller.js?0"></script>
+<script src="js/dipintra-scroller.js?1"></script>
 
 
 </head>
@@ -214,9 +218,9 @@
 
     <div class="row unselectable">
         <div class="col-10 ">
-            <h3 data-i18n="editor.title">Traduzione a vista</h3>        
+            <h3 data-i18n="editor.title">Traduzione a vista</h3>
         </div>
-    
+
         <div class="col-2 text-end">
 
             <!-- Selettore di lingua -->
@@ -258,39 +262,21 @@
                         <i class="flag-icon flag-icon-ru"></i>
                         Русский
                     </button>
-                </li>                
+                </li>
               </ul>
             </div>
 
         </div>
-        
-     
-        
-        
+
+
+
+
     </div>
-    
+
 
     <textarea  id="editor-textarea" name="editor-textarea">
-        <p><span style="font-weight: bold">Sostituite questo testo con il vostro...</span></p>
-        <p>C'era un muro. Non pareva importante. Era fatto di ciottoli uniti senza pretese, con un po' di malta. Gli adulti potevano guardare senza sforzo al di là del muro, e anche i bambini non avevano difficoltà di scavalcarlo.
-        Dove incontrava la strada, invece di avere un cancello degenerava in una pura geometria, una linea, un'idea di confine. Ma l'idea era reale. E importante. Da sette generazioni non c'era nulla di più importante, al mondo, di
-        quel muro.</p>
-        <p>Come ogni altro muro, anch'esso era ambiguo, bifronte. Quel che stava al suo interno e quel che stava al suo esterno dipendevano dal lato da cui lo
-        si osservava.</p>
-        <p>Osservato da un lato, il muro recingeva un campo spoglio, di una sessantina di acri, chiamato <i>Porto di Anarres</i>. Il campo comprendeva un paio di grosse gru, una piazzola di atterraggio per i razzi, tre magazzini, una rimessa per gli autocarri e un dormitorio. Il dormitorio aveva un aspetto duraturo, severo, melanconico. Non si vedevano giardini, né bambini: era chiaro che non vi abitava nessuno, che chi arrivava non si fermava a lungo.</p>
-        <p>In effetti si trattava di una zona di quarantena. Il muro chiudeva al suo interno non soltanto il campo di atterraggio, ma anche le navi che scendevano dallo spazio, gli uomini che giungevano con le navi, i mondi da cui provenivano e, complessivamente, il resto dell'universo. <i>Chiudeva nel suo interno l'universo e lasciava fuori Anarres</i>, libera.</p>
-        <p>Osservato dall'altro lato, il muro chiudeva Anarres. <i>Al suo interno c'era tutto il pianeta</i>: un grande campo di prigionia, isolato dagli altri mondi e dagli altri uomini, in quarantena. </p>
-        <p>...</p>
-        <p>Look again at that dot. That's here. That's home. That's us. On it everyone you love, everyone you know, everyone you ever heard of, every human being who ever was, lived out their lives. The aggregate of our joy and suffering, thousands of confident religions, ideologies, and economic doctrines, every hunter and forager, every hero and coward, every creator and destroyer of civilization, every king and peasant, every young couple in love, every mother and father, hopeful child, inventor and explorer, every teacher of morals, every corrupt politician, every "superstar," every "supreme leader," every saint and sinner in the history of our species lived there &mdash; on a mote of dust suspended in a sunbeam.</p>
 
-        <p>The Earth is a very small stage in a vast cosmic arena. Think of the rivers of blood spilled by all those generals and emperors so that, in glory and triumph, they could become the momentary masters of a fraction of a dot. Think of the endless cruelties visited by the inhabitants of one corner of this pixel on the scarcely distinguishable inhabitants of some other corner, how frequent their misunderstandings, how eager they are to kill one another, how fervent their hatreds.</p>
 
-        <p>Our posturings, our imagined self-importance, the delusion that we have some privileged position in the Universe, are challenged by this point of pale light. Our planet is a lonely speck in the great enveloping cosmic dark. In our obscurity, in all this vastness, there is no hint that help will come from elsewhere to save us from ourselves.</p>
-
-        <p>The Earth is the only world known so far to harbor life. There is nowhere else, at least in the near future, to which our species could migrate. Visit, yes. Settle, not yet. Like it or not, for the moment the Earth is where we make our stand.</p>
-
-        <p>It has been said that astronomy is a humbling and character-building experience. There is perhaps no better demonstration of the folly of human conceits than this distant image of our tiny world. To me, it underscores our responsibility to deal more kindly with one another, and to preserve and cherish the pale blue dot, the only home we've ever known.</p>
-        
     </textarea>
 	
     <div class="row mt-2 mb-2 unselectable">
@@ -315,7 +301,6 @@
             <div id="start-player" class="btn btn-primary"><i class="fa fa-laptop float-right"></i>&nbsp;<span data-i18n='editor.runscroller'>Visualizza</span></div>
         </div>
     </div>
-        
 </div>
 <!-- end: editor -->
 
@@ -324,44 +309,44 @@
 <div id="player-container" class="container-fluid"  style="min-width: 460px!important">
 
     <div id="player-title-row" class="unselectable d-flex justify-content-between align-items-center  mb-1" >
-    
+
         <div>
             <h3  data-i18n="player.title">Traduzione a vista</h3>
         </div>
-        
+
         <div class="d-flex align-items-center">
-             
+
             <div class="small-label" for="back-to-editor" data-i18n="player.back">Chiudi e torna all'editor</div><div>&nbsp;</div>
             <div id="back-to-editor" class="btn btn-danger"  data-i18n="[title]descr.xxx" data-i18n="[title]descr.back" title="Torna all'editor di testo e carica un altro contenuto">
-                <i class="fa fa-times" ></i> 
+                <i class="fa fa-times" ></i>
             </div>
-             
+
         </div>
-    
-    </div>    
-    
-    
+
+    </div>
+
+
     <!-- begin: scroller  -->
     <div class="card text-white bg-scroller-header ">
-        
+
 		<div class="card-header unselectable d-flex justify-content-between align-items-center ps-1 pe-1 pt-0 pb-0">
-            
+
             <!-- Player -->
             <div  class="text-center me-1 ms-0  p-0" >
                 <span  class="small-label" data-i18n="player.player">Player</span>
-                <div class="m-0 p-0"> 
-                    <div  id="start-pause" class="btn btn-clear  btn-fixed-width btn-sm"   
+                <div class="m-0 p-0">
+                    <div  id="start-pause" class="btn btn-clear  btn-fixed-width btn-sm"
                         data-i18n="[title]descr.play" title="Riproduci/pausa">
                         <i class="fa fa-play"></i>
                     </div>
-                    <div id="stop" class="btn btn-clear  btn-fixed-width btn-sm"  
+                    <div id="stop" class="btn btn-clear  btn-fixed-width btn-sm"
                         data-i18n="[title]descr.stop" title="Interrompi la riproduzione">
-                        <i class="fa fa-stop"></i> 
+                        <i class="fa fa-stop"></i>
                     </div>
 
-                    <div id="rewind-button" class="btn btn-clear btn-sm btn-fixed-width" 
+                    <div id="rewind-button" class="btn btn-clear btn-sm btn-fixed-width"
                         data-i18n="[title]descr.rewind" title="Torna indietro di 5 secondi">
-                        <i class="fa fa-undo"></i> 
+                        <i class="fa fa-undo"></i>
                     </div>
                 </div>
             </div>
@@ -377,13 +362,13 @@
                     <div class="inline-block mt-0 mb-0 me-1 ms-1 d-none d-md-block" style="padding-top:3px">
                       <input type="range" class="form-range" id="speed-slider" data-i18n="[title]descr.setspeed">
                     </div>
-                    
+
                     <div id="inc-text-speed" class="btn btn-scroller-header btn-sm btn-fixed-width speed-changer"  data-i18n="[title]descr.incspeed" title="Aumenta la velocità di scorrimento">
                         <i class="fa fa-plus"></i>
                     </div>
                </div>
             </div>
-            
+
             <!-- grow -->
             <div class="flex-grow-1 m-0 p-0"></div>
 
@@ -430,12 +415,12 @@
                 <!-- fine indicatore -->
                 <div id="sliding-text" class="unselectable"></div>
             </div>
-            
+
         </div>
 		
 	
         <div id="player-footer" class="card-footer d-flex justify-content-between align-items-center pb-0 pt-0 mb-0 mt-0 ps-2 pe-2">
-        
+
             <div class="d-flex align-items-center me-auto mt-1 unselectable">
 
                 <div class="estimated-time-display m-0 p-0 text-center">
@@ -451,7 +436,7 @@
                     <div class="small-label m-0 p-0"  data-i18n="player.pps">pixel/s</div>
                     <div id="true-speed" class="m-0 p-0">0</div>
                 </div>
-                
+
                 <!-- d-none d-md-block: visibile solo su schermi medio-grandi -->
                 <div class="ms-2 me-2 d-none d-md-block"></div>
 
@@ -460,23 +445,23 @@
                     <div class="small-label m-0 p-0" data-i18n="player.words">parole</div>
                     <div id="words-in-text" class="m-0 p-0">0</div>
                 </div>
-                
+
                 <div class="ms-2 me-2"></div>
-                
+
                 <div class="estimated-time-display m-0 ps-2 text-center border-start border-warning-subtle">
                     <div class="small-label m-0 p-0" data-i18n="player.totaltime">durata</div>
                     <div id="estimated-time" class="m-0 p-0">00:00:00</div>
                 </div>
-                
+
                 <div class="ms-2 me-2"></div>
-                
+
                 <div class="elapsed-time-display m-0 ps-2 text-center border-start border-warning-subtle">
                     <div class="small-label m-0 p-0" data-i18n="player.elapsedtime">t. trascorso</div>
                     <div id="elapsed-time" class="m-0 p-0 fw-bold">00:00</div>
                 </div>
-                
+
                 <div class="ms-2 me-2"></div>
-                
+
                 <div class="remaining-time-display m-0 ps-2 text-center border-start border-warning-subtle">
                     <div class="small-label m-0 p-0" data-i18n="player.remainingtime">t. mancante</div>
                     <div id="remaining-time" class="m-0 p-0 fw-bold">00:00</div>
@@ -490,12 +475,33 @@
             </div -->
 
         </div>
-    
+
     </div>
     <!-- end: scroller -->
 
 </div>
 <!-- end: player -->
+
+
+<div class="modal" tabindex="-1" id="about-box">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">📜 Scroller v3.0</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <p>Scroller is a web-based tool for both teachers and students in interpreter training. It is designed for the practice and objective human evaluation of sight translation performance. It simulates real-time speech flow by scrolling text at customizable speeds (measured in Words Per Minute - WPM), offering objective performance tracking and adaptive display settings.</p>
+          <p>Developed for the <a href="https://dit.unibo.it/" target="_blank">Department of Interpretation and Translation</a> (DIT) at the University of Bologna by Gabriele Carioli.</p>
+          <p style="text-align:center; font-size: 0.8rem">
+              <img style="height:1.2rem; margin-bottom:4px" align=center src="images/github.svg">
+               Get it on GitHub:<br/> 
+              <a href="https://github.com/bilo1967/sight-translation/" target="_blank">github.com/bilo1967/sight-translation</a>
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>

@@ -4,6 +4,7 @@ const lngs = {
     es: { nativeName: 'Español' },
     fr: { nativeName: 'Français' },
     de: { nativeName: 'Deutsch' },
+    ru: { nativeName: 'Русский' },
 };
 
 
@@ -59,6 +60,7 @@ $(function() {
                             wpm9:           "240 words per minute", 
                             runscroller:    "Start",
                             selectlanguage: "Select the app language",
+                            replacethis:    "Replace this text with your...",
                         },                  
                         player: {           
                             title:          "Sight translation",
@@ -115,6 +117,7 @@ $(function() {
                             wpm9:           "240 parole al minuto", 
                             runscroller:    "Inizia",
                             selectlanguage: "Seleziona la lingua dell'app",
+                            replacethis:    "Sostituisci questo testo con il tuo...",
                         },
                         player: {
                             title:          "Traduzione a vista",
@@ -171,6 +174,7 @@ $(function() {
                             wpm9:           "240 palabras por minuto",
                             runscroller:    "Iniciar",
                             selectlanguage: "Seleccionar el idioma de la aplicación",
+                            replacethis:    "Sustituya este texto por su...",
                         },                  
                         player: {           
                             title:          "Traducción a la vista",
@@ -226,6 +230,7 @@ $(function() {
                             wpm9:           "240 mots par minute", 
                             runscroller:    "Démarrer",
                             selectlanguage: "Sélectionnez la langue de l'app",
+                            replacethis:    "Remplacez ce texte par votre...",
                         },
                         player: {
                             title:          "Traduction à vue",

@@ -86,11 +86,16 @@ $(document).ready(function () {
     const speedSlider      = $('#speed-slider');
     const playerContainer  = $('#player-container');
     const editorContainer  = $('#editor-container');
+    const aboutBox         = new bootstrap.Modal($('#about-box').get(0));
     
     let frameStartTime;
     let currentPosition    = 0;
     
     var wordCount;
+
+    // Verifico se è la prima volta che la pagina viene visitata
+    const visitedBefore = Cookies.get('visited-before');
+    Cookies.set('visited-before', true);
 
     // La lingua dell'interfaccia di tinymce non può essere cambiata al volo
     // La rileviamo qui, preferenzialmente dai cookie, in seconda battuta da
@@ -458,16 +463,31 @@ $(document).ready(function () {
      *  EDITOR
      */
 
+    $('#editor-textarea').text($.t('editor.replacethis'));
+
     $('#editor-textarea').tinymce({
 
         toolbar: [
-            'undo redo cut copy removeformat | blocks  fontfamily fontsize |  forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent blockquote numlist bullist | lineheight',
+            'undo redo cut copy removeformat | blocks fontfamily fontsize | forecolor backcolor | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | outdent indent blockquote numlist bullist | lineheight',
         ],
         //menubar: 'file edit insert view format tools help', // omesso: view
-        menubar:   'file edit insert      format tools help',
+        menubar:   'file edit insert  format tools about',
+        menu: {
+            about: { title: '?', items: 'help aboutScroller' }
+        },
         plugins: "wordcount emoticons charmap insertdatetime searchreplace lists advlist autosave help",
         theme: 'silver',
         setup: function (ed) {
+            if (! visitedBefore) {
+                aboutBox.show();
+            }
+            ed.ui.registry.addMenuItem('aboutScroller', {
+                icon: 'info',
+                text: 'Scroller…',
+                onAction: () => {
+                    aboutBox.show();
+                }
+            });
             ed.on('init', function(args) {
                 // Ora l'editor è istanziato e posso copiare il riferimento ad esso
   				editorObject = this;  // = tinymce.activeEditor
