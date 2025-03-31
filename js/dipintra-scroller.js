@@ -30,14 +30,14 @@ console.assert(
     'Error setting slider minimum and maximum value'
 ); 
 
-
-
-// Lingue configurate in TinyMCE. 
-// La chiave è il codice della lingua utilizzato nella app
-// Alcune sono definite col codice di localizzazione principale a 2 caratteri
-// altre con quello regionalizzato aa_AA. Usiamo questa costante per mappare
-// le nostre codifiche su quelle di TinyMCE
-// Per aggiungerne altre: https://www.tiny.cloud/get-tiny/language-packages/ 
+/*
+ * Lingua dell'interfaccia di TinyMCE
+ *
+ * La chiave è il codice di lingua utilizzato nella app (it, en, es, fr, ...)
+ * Il valore è il codice di lingua utilizzato da TinyMCE (xx oppure xx_XX)
+ *
+ * Per aggiungerne altre: https://www.tiny.cloud/get-tiny/language-packages/ 
+ */
 const mapLangToEditorLanguage = {
     en:      'en',
     it:      'it',
@@ -48,11 +48,14 @@ const mapLangToEditorLanguage = {
     default: 'en',
 };
 
-//
-// Le bandiere da associare alle lingue, sono riferite al paese e non alla lingua.
-// Quelle non elencate, sono in css/flags
-// La chiave è il codice della lingua utilizzato nella app
-//
+/*
+ * Bandiere nazionali di flag-icons (usate come icone nel selettore di lingua
+ *
+ * La chiave è il codice di lingua utilizzato nella app (it, en, es, fr, ...)
+ * Il valore è il country code a 2 caratteri usato da flag-icons
+ *
+ * Altre possono essere aggiunge da css/flags 
+ */
 const mapLangToNation = {
     en:      'gb',
     it:      'it',
@@ -90,8 +93,8 @@ $(document).ready(function () {
     var wordCount;
 
     // La lingua dell'interfaccia di tinymce non può essere cambiata al volo
-    // La rileviamo qui, preferenzialmente dai cookie e in secondo luogo 
-    // quello determinato da i18next o, in alternativa, l'inglese
+    // La rileviamo qui, preferenzialmente dai cookie, in seconda battuta da
+    // quella determinata da i18next o, come fallback, l'inglese
     const editorLanguage = Cookies.get('editor-language') ?? mapEditorLanguage(i18next.language ?? 'default');
     Cookies.set('editor-language', editorLanguage);
     
@@ -360,9 +363,6 @@ $(document).ready(function () {
     // Incrementa/decrementa velocità coi bottoni
     // sia quando vengono cliccati che quando vengono tenuti premuti
     //
-
-    
-    
 
     $(document).on('click', '#inc-text-speed', function (e) {
         changeTextSpeed(speedSlider.attr("step"));
