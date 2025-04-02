@@ -190,7 +190,7 @@ $(function() {
                             elapsedtime:    "t. transcurrido",
                             remainingtime:  "t. restante",
                             stopdescr:      "Detener la reproducción",
-                            paused:         "pausado...",
+                            paused:         "en pausa...",
                         },                  
                         descr: {            
                             back:           "Volver al editor de texto y cargar otro contenido",
@@ -231,6 +231,7 @@ $(function() {
                             runscroller:    "Démarrer",
                             selectlanguage: "Sélectionnez la langue de l'app",
                             replacethis:    "Remplacez ce texte par votre...",
+                            
                         },
                         player: {
                             title:          "Traduction à vue",
@@ -267,6 +268,7 @@ $(function() {
                         },
                     },
                 },
+
 /*
                 de: {
                 },
