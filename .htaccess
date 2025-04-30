@@ -1,8 +1,13 @@
-# Add .html suffix to URLs with no extension
-
 RewriteEngine on 
 
+# favicon.ico -> images/scroller.svg
+RewriteRule ^favicon\.ico$ images/scroller.svg [L]
+
+# apple-touch-icon*.png -> images/scroller.png
+RewriteRule ^apple-touch-icon(?:-120x120)?(?:-precomposed)?\.png$ /images/scroller.png [L]
+
+# Add .html suffix to URLs with no extension
 RewriteCond %{REQUEST_FILENAME} !-d 
 RewriteCond %{REQUEST_FILENAME}\.html -f 
-RewriteRule ^(.*)$ $1.html
+RewriteRule ^(.*)$ $1.html [L]
 
